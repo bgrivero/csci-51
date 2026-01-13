@@ -5,7 +5,9 @@ using namespace std;
   This function checks if the character is Uppercase (0), Lowercase (1), or Neither (2).
   These integer values will be used to verify later on whether or not the character will be increased.
 
-  Source: https://www.geeksforgeeks.org/dsa/check-whether-the-given-character-is-in-upper-case-lower-case-or-non-alphabetic-character/
+  Sources: 
+  https://www.geeksforgeeks.org/dsa/check-whether-the-given-character-is-in-upper-case-lower-case-or-non-alphabetic-character/
+  https://www.w3schools.com/cpp/cpp_conditions.asp
 */
 int check(char x){
   if (x>='A' && x<='Z'){
