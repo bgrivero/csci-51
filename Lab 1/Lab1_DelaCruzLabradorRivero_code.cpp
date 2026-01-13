@@ -39,7 +39,7 @@ string censor(string name){
 
   Source: https://www.geeksforgeeks.org/cpp/character-arithmetic-in-cpp/
 */
-string getNextLetter(string name){
+string getNextLetterV1(string name){
   int string_length = name.length();
 
   for (int i = 0; i < string_length; i++){
@@ -57,7 +57,17 @@ string getNextLetter(string name){
   
 }
 
+/*
+  This function fulfills requirement #5.
+  It uses a pointer input charP to increment the character *charP in-place.
+*/
 
+void getNextLetterV2(char* charP){
+  if (check(*charP) != 2){
+      (*charP) ++;
+  }
+  
+}
 
 int main(void){
   string name;
@@ -68,8 +78,13 @@ int main(void){
   string censored_name = censor(name);
   cout << censored_name << endl;
 
-  string increased_name = getNextLetter(name);
+  string increased_name = getNextLetterV1(name);
   cout << increased_name << endl;
+
+  for (int i = 0; i < name.length(); i++) {
+    getNextLetterV2(&name[i]); 
+  }
+  cout << name << endl;
 }
 
 /*
