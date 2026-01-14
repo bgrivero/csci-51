@@ -51,13 +51,15 @@ string getNextLetterV1(string name){
     }
 
     if (current_char == 'z'){
-            current_char = 'a';
-        }
+      name.replace(i, 1, 1, 'a');
+      continue;
+    }
     else if (current_char == 'Z'){
-        current_char = 'A';
+      name.replace(i, 1, 1, 'A');
+      continue;
     }
     else{
-        current_char++;
+      current_char++;
     }
 
     name[i] = current_char;
@@ -75,16 +77,15 @@ string getNextLetterV1(string name){
 void getNextLetterV2(char* charP){
   if (check(*charP) != 2){
     if (*charP == 'z'){
-            *charP = 'a';
-        }
+      *charP = 'a';
+    }
     else if (*charP == 'Z'){
-        *charP = 'A';
+      *charP = 'A';
     }
     else{
-        (*charP) ++;
+      (*charP) ++;
     }
-  }
-  
+  }  
 }
 
 int main(void){
