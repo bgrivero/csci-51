@@ -49,7 +49,17 @@ string getNextLetterV1(string name){
     if (char_type == 2){
       continue;
     }
-    current_char++;
+
+    if (current_char == 'z'){
+            current_char = 'a';
+        }
+    else if (current_char == 'Z'){
+        current_char = 'A';
+    }
+    else{
+        current_char++;
+    }
+
     name[i] = current_char;
   }
 
@@ -64,7 +74,15 @@ string getNextLetterV1(string name){
 
 void getNextLetterV2(char* charP){
   if (check(*charP) != 2){
-      (*charP) ++;
+    if (*charP == 'z'){
+            *charP = 'a';
+        }
+    else if (*charP == 'Z'){
+        *charP = 'A';
+    }
+    else{
+        (*charP) ++;
+    }
   }
   
 }
