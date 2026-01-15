@@ -28,6 +28,9 @@ int check(char x){
   Source: https://www.geeksforgeeks.org/cpp/std-string-replace-in-cpp/
 */
 string censor(string name){
+  if (name.length() <= 1) {
+    return name;
+  }
   string censored_name = name.replace(1, name.length()-1, name.length()-1, '#');
   return censored_name;
 }
@@ -91,7 +94,7 @@ void getNextLetterV2(char* charP){
 int main(void){
   string name;
   cout << "What is your name?: ";
-  cin >> name;
+  getline(cin, name); // uses getline() method to handle empty strings. https://stackoverflow.com/questions/33686108/how-to-read-an-empty-string-in-c
   cout << name << endl;
 
   string censored_name = censor(name);
