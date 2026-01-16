@@ -1,3 +1,4 @@
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -86,8 +87,8 @@ void getNextLetterV2(char* charP){
 
 int main(void){
   string name;
-  cout << "What is your name?: ";
-  getline(cin, name); // uses getline() method to handle empty strings.
+  // uses getline() method to handle empty strings.
+  getline(cin, name); 
   cout << name << endl;
 
   string censored_name = censor(name);
