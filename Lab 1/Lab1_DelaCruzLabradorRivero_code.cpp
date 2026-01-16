@@ -45,6 +45,7 @@ string getNextLetterV1(string name){
       continue;
     }
 
+    //the following loops back z to a so that the next letter after z is a
     if (current_char == 'z'){
       name.replace(i, 1, 1, 'a');
       continue;
