@@ -15,10 +15,27 @@ string leftTrim(string message){
     break;
   }
 
-  cout << "Number of blanks: " << blank_count << endl;
-
   string left_trimmed_message = message.substr(blank_count);
   return left_trimmed_message;
+}
+
+string rightTrim(string message){
+  int length = message.length();
+  int blank_count = 0;
+  cout << "right length: " << length << endl;
+
+  for (int i = length-1; i > 0; i--){
+    if (isblank(message[i])){
+      cout << "Trailing whitespace!" << endl;
+      blank_count++;
+      continue;
+    }
+    cout << "char hit: " << message[i] << endl;
+    break;
+  }
+
+  string right_trimmed_message = message.substr(0, length - blank_count);
+  return right_trimmed_message;
 }
 
 int main(void){
@@ -39,7 +56,9 @@ int main(void){
     //To Do: Refactor the following message printing mechanism
     getline(cin, message);
     string left_trimmed_message = leftTrim(message);
-    cout << "Agent #" << counter << " getline:" << left_trimmed_message;
+    cout << "left trimmed: " << left_trimmed_message << endl;
+    string trimmed_message = rightTrim(left_trimmed_message);
+    cout << "Agent #" << counter << " getline:" << trimmed_message;
     counter += 1;
   }
 }
