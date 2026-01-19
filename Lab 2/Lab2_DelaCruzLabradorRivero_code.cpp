@@ -83,5 +83,7 @@ TODO:
 1) Add quotation marks to the yells situation.
 2) Handle case of when the message is "2 4". (I have not checked)
 3) Check edge cases / potential errors.
+4) Add robust checking if lines match N.
+5) Check if any needed code to deal with the redirected way of adding input.
 
 */
