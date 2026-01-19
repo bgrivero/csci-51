@@ -86,4 +86,10 @@ TODO:
 4) Add robust checking if lines match N.
 5) Check if any needed code to deal with the redirected way of adding input.
 
+
+SOURCES:
+https://stackoverflow.com/questions/7663709/how-can-i-convert-a-stdstring-to-int
+https://www.geeksforgeeks.org/cpp/substring-in-cpp/
+https://www.programiz.com/cpp-programming/library-function/cctype/isblank
+https://www.programiz.com/cpp-programming/library-function/cctype/isdigit
 */
