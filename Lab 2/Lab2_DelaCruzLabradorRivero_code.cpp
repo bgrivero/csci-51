@@ -2,6 +2,25 @@
 #include <iostream>
 using namespace std;
 
+//TODO: Check for trailing whitespaces
+string leftTrim(string message){
+  int length = message.length();
+  int blank_count = 0;
+
+  for (int i = 0; i < length; i++){
+    if (isblank(message[i])){
+      blank_count++;
+      continue;
+    }
+    break;
+  }
+
+  cout << "Number of blanks: " << blank_count << endl;
+
+  string left_trimmed_message = message.substr(blank_count);
+  return left_trimmed_message;
+}
+
 int main(void){
   int num_agents;
   
@@ -19,7 +38,8 @@ int main(void){
 
     //To Do: Refactor the following message printing mechanism
     getline(cin, message);
-    cout << message << endl;
+    string left_trimmed_message = leftTrim(message);
+    cout << "Agent #" << counter << " getline:" << left_trimmed_message;
     counter += 1;
   }
 }
