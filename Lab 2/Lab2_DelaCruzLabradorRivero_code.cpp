@@ -8,7 +8,7 @@ string leftTrim(string message){
   int blank_count = 0;
 
   for (int i = 0; i < length; i++){
-    if (isblank(message[i])){
+    if (isspace(static_cast<unsigned char>(message[i]))){
       blank_count++;
       continue;
     }
@@ -25,7 +25,7 @@ string rightTrim(string message){
   int blank_count = 0;
 
   for (int i = length-1; i > 0; i--){
-    if (isblank(message[i])){
+    if (isspace(static_cast<unsigned char>(message[i]))){
       blank_count++;
       continue;
     }
@@ -72,7 +72,7 @@ int main(void){
       cout << "Agent #" << counter << " holds up the number: " << stoi(trimmed_message) << endl;
     }
     else{
-      cout << "Agent #" << counter << " yells: " << trimmed_message << endl;
+      cout << "Agent #" << counter << " yells: \"" << trimmed_message << "\"" << endl;
     }
     counter += 1;
   }
