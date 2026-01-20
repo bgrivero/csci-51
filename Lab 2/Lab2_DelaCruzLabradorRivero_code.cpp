@@ -41,11 +41,9 @@ bool isInteger(string message){
   int length = message.length();
   for (int i = 0; i < length ; i++){
     if (!(isdigit(message[i]))){
-      cout << "Message is not an integer!" << endl;
       return false;
     }
   }
-  cout << "Message is an integer!" << endl;
   return true;
 }
 
@@ -64,7 +62,7 @@ int main(void){
     cin >> x >> y;
     cout << "Agent #" << counter << " is at " << "(" << x << ", " << y << ") " << endl; 
 
-    //To Do: Refactor the following message printing mechanism
+    //Prints out the lines as indicated in the specs
     getline(cin, message);
     string left_trimmed_message = leftTrim(message);
     string trimmed_message = rightTrim(left_trimmed_message);
@@ -80,7 +78,6 @@ int main(void){
 
 /*
 TODO:
-1) Add quotation marks to the yells situation.
 2) Handle case of when the message is "2 4". (I have not checked)
 3) Check edge cases / potential errors.
 4) Add robust checking if lines match N.
