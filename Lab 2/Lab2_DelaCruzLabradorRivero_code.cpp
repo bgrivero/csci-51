@@ -38,6 +38,10 @@ string rightTrim(string message){
 
 // Helper function to check if string is a message.
 bool isInteger(string message){
+  if (message.empty()){
+    return false;
+  }
+
   int length = message.length();
   for (int i = 0; i < length ; i++){
     if (!(isdigit(message[i]))){
@@ -67,7 +71,7 @@ int main(void){
     string left_trimmed_message = leftTrim(message);
     string trimmed_message = rightTrim(left_trimmed_message);
     if (isInteger(trimmed_message)){
-      cout << "Agent #" << counter << " holds up the number: " << stoi(trimmed_message) << endl;
+      cout << "Agent #" << counter << " holds up the number: " << trimmed_message << endl;
     }
     else{
       cout << "Agent #" << counter << " yells: \"" << trimmed_message << "\"" << endl;
@@ -78,15 +82,12 @@ int main(void){
 
 /*
 TODO:
-2) Handle case of when the message is "2 4". (I have not checked)
 3) Check edge cases / potential errors.
 4) Add robust checking if lines match N.
 5) Check if any needed code to deal with the redirected way of adding input.
 
 
 SOURCES:
-https://stackoverflow.com/questions/7663709/how-can-i-convert-a-stdstring-to-int
 https://www.geeksforgeeks.org/cpp/substring-in-cpp/
-https://www.programiz.com/cpp-programming/library-function/cctype/isblank
 https://www.programiz.com/cpp-programming/library-function/cctype/isdigit
 */
