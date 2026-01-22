@@ -44,6 +44,10 @@ bool isInteger(string message){
 
   int length = message.length();
   for (int i = 0; i < length ; i++){
+    // Check if negative integer.
+    if (i == 0  and message[0] == '-'){
+      continue;
+    }
     if (!(isdigit(message[i]))){
       return false;
     }
