@@ -8,7 +8,7 @@ string leftTrim(string message){
   int blank_count = 0;
 
   for (int i = 0; i < length; i++){
-    if (isspace(static_cast<unsigned char>(message[i]))){
+    if (isspace(message[i])){
       blank_count++;
       continue;
     }
@@ -25,7 +25,7 @@ string rightTrim(string message){
   int blank_count = 0;
 
   for (int i = length-1; i > 0; i--){
-    if (isspace(static_cast<unsigned char>(message[i]))){
+    if (isspace(message[i])){
       blank_count++;
       continue;
     }
@@ -45,7 +45,7 @@ bool isInteger(string message){
   int length = message.length();
   for (int i = 0; i < length ; i++){
     // Check if negative integer.
-    if (i == 0  and message[0] == '-'){
+    if (i == 0 && message[0] == '-'){
       continue;
     }
     if (!(isdigit(message[i]))){
