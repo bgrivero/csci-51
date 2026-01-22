@@ -44,8 +44,9 @@ bool isInteger(string message){
 
   int length = message.length();
   for (int i = 0; i < length ; i++){
-    // Check if negative integer.
-    if (i == 0 && message[0] == '-'){
+    // Check for integers starting with a positive or negative sign, e.g. -200 must be recognized as an int
+    // Checks the length for single-input '-' or '+' messages.
+    if (i == 0 && (message[0] == '-' || message[0] == '+') && length > 1){
       continue;
     }
     if (!(isdigit(message[i]))){
