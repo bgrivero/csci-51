@@ -33,8 +33,39 @@ struct IntList{
     }
 
     // TODO: IMPLEMENT A FUNCTION THAT RETURNS THE NEXT NODE AFTER SOME INPUT NODEP
+    // The function returns the node after any other node.
+    IntNode* getNextNode(IntNode* nodeP){
+        int a;
+    }
 
-    // TODO: IMPLEMENT A FUNCTION THAT DELETES SOME INPUT NODEP FROM THE LINKED LIST
+    // The function deletes a node.
+    void deleteNode(IntNode* nodeP){
+        // The linked list is empty or the node being deleted is null i.e. illegal memory access (I added this for safety but i'm not sure if necessary)
+        if (firstNodeP == NULL || nodeP == NULL){
+            return;
+        }
+
+        // Deleting the first node
+        // Necessary because there is no nodes before the first node
+        if (nodeP == firstNodeP){
+            IntNode* temp = firstNodeP;
+            firstNodeP = firstNodeP -> next;
+            delete temp;
+            return;
+        }
+
+        // Deleting other nodes that is not the first
+        IntNode* current = firstNodeP;
+        while (current -> next != NULL && current -> next != nodeP){
+            current = current->next;
+        }
+
+        //deletes nodeP and continues the linked list
+        if (current -> next == nodeP){
+            current -> next = nodeP -> next;
+            delete nodeP;
+        }
+    }
 
     // The function is used to print out all node values in the linked list.
     void printAllVals(){
@@ -73,6 +104,18 @@ int main(void){
     // Print all values to validate correctness of code.
     linkedList.printAllVals();
 
+    // Delete first node
+    linkedList.deleteNode(linkedList.firstNodeP);
+    cout << "--- Deleted first node ---" << endl;
+    linkedList.printAllVals();
+
+    // Delete node 2
+    IntNode* node2 = linkedList.firstNodeP->next;
+    linkedList.deleteNode(node2);
+    cout << "--- Deleted second node ---" << endl;
+    linkedList.printAllVals();
+
+    return 0;
 };
 
 // TODO: CHECK FOR MEMORY LEAKS
