@@ -32,6 +32,10 @@ struct IntList{
         return firstNodeP;
     }
 
+    // TODO: IMPLEMENT A FUNCTION THAT RETURNS THE NEXT NODE AFTER SOME INPUT NODEP
+
+    // TODO: IMPLEMENT A FUNCTION THAT DELETES SOME INPUT NODEP FROM THE LINKED LIST
+
     // The function is used to print out all node values in the linked list.
     void printAllVals(){
         if (firstNodeP == NULL){
@@ -49,6 +53,8 @@ struct IntList{
         return;
     }
 };
+
+// TODO: IMPLEMENT AN IntStack STRUCT THAT HAS METHODS FOR PUSH, POP, AND CURRENT SIZE
 
 int main(void){
     // Initialize linkedlist
@@ -68,3 +74,5 @@ int main(void){
     linkedList.printAllVals();
 
 };
+
+// TODO: CHECK FOR MEMORY LEAKS
