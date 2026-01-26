@@ -35,7 +35,10 @@ struct IntList{
     // TODO: IMPLEMENT A FUNCTION THAT RETURNS THE NEXT NODE AFTER SOME INPUT NODEP
     // The function returns the node after any other node.
     IntNode* getNextNode(IntNode* nodeP){
-        int a;
+        if (nodeP == NULL) {
+            return NULL;
+        }
+        return nodeP -> next;
     }
 
     // The function deletes a node.
@@ -114,8 +117,6 @@ int main(void){
     linkedList.deleteNode(node2);
     cout << "--- Deleted second node ---" << endl;
     linkedList.printAllVals();
-
-    return 0;
 };
 
 // TODO: CHECK FOR MEMORY LEAKS
