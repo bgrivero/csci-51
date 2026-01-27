@@ -52,7 +52,7 @@ struct IntList{
         // Necessary because there is no nodes before the first node
         if (nodeP == firstNodeP){
             IntNode* temp = firstNodeP;
-            firstNodeP = firstNodeP -> next;
+            firstNodeP = getNextNode(firstNodeP);
             delete temp;
             return;
         }
@@ -65,7 +65,7 @@ struct IntList{
 
         //deletes nodeP and continues the linked list
         if (current -> next == nodeP){
-            current -> next = nodeP -> next;
+            current -> next = getNextNode(nodeP);
             delete nodeP;
         }
     }
