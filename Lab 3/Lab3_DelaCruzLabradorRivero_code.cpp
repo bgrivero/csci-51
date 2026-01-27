@@ -32,7 +32,6 @@ struct IntList{
         return firstNodeP;
     }
 
-    // TODO: IMPLEMENT A FUNCTION THAT RETURNS THE NEXT NODE AFTER SOME INPUT NODEP
     // The function returns the node after any other node.
     IntNode* getNextNode(IntNode* nodeP){
         if (nodeP == NULL) {
@@ -43,7 +42,7 @@ struct IntList{
 
     // The function deletes a node.
     void deleteNode(IntNode* nodeP){
-        // The linked list is empty or the node being deleted is null i.e. illegal memory access (I added this for safety but i'm not sure if necessary)
+        // The linked list is empty or the node being deleted is null i.e. illegal memory access 
         if (firstNodeP == NULL || nodeP == NULL){
             return;
         }
@@ -87,7 +86,7 @@ struct IntList{
         return;
     }
 
-    // destructor
+    // Destructor so there is no memory leak
     ~IntList() {
         IntNode* current = firstNodeP;
         while (current != 0){
@@ -183,5 +182,3 @@ int main(void){
     cout << testStack.pop() << endl;
     cout << testStack.pop() << endl;
 };
-
-// TODO: CHECK FOR MEMORY LEAKS
