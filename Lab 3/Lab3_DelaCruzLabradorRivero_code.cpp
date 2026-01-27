@@ -86,6 +86,17 @@ struct IntList{
         }
         return;
     }
+
+    // destructor
+    ~IntList() {
+        IntNode* current = firstNodeP;
+        while (current != 0){
+            IntNode* next = current -> next;
+            delete current;
+            current = next;
+        }
+        firstNodeP = nullptr;
+    }
 };
 
 struct IntStack{
