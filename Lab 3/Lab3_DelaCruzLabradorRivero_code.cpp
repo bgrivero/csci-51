@@ -88,7 +88,48 @@ struct IntList{
     }
 };
 
-// TODO: IMPLEMENT AN IntStack STRUCT THAT HAS METHODS FOR PUSH, POP, AND CURRENT SIZE
+struct IntStack{
+    // REVIEW: If this set up fulfills "not exposing" IntNode struct to user.
+    private:
+    IntNode* topP;
+    int stacksize;
+
+    public:
+    // Initializing an empty stack.
+    IntStack(){
+        topP = NULL;
+        stacksize = 0;
+    }
+    
+    // This function pushes a value onto the stack. topP is the next for the newNode since the next value is always the previous one.
+    void push(int value){
+        IntNode* newNode = new IntNode{value, topP};
+        topP = newNode;
+        stacksize ++;
+    }
+
+    // This function returns the value of the top node and deletes it from the stack.
+    int pop(){
+        if(topP == NULL){
+            cout << "Stack is empty" << endl;
+            return -99;
+        };
+        // Temporary have the topNode to have the top-most node which will be deleted later on.
+        IntNode* topNode = topP;
+        int returnValue = topNode -> val;
+        // Move the topP to the "next" (node below the top).
+        topP = topP -> next;
+        delete topNode;
+        stacksize --;
+        return returnValue;
+    }
+
+    // This function returns the value of the current stacksize.
+    int size(){
+        return stacksize;
+    }
+};
+
 
 int main(void){
     // Initialize linkedlist
@@ -117,6 +158,19 @@ int main(void){
     linkedList.deleteNode(node2);
     cout << "--- Deleted second node ---" << endl;
     linkedList.printAllVals();
+
+    // Stack check
+    cout << "--- Stack Time! ---" << endl;
+    IntStack testStack;
+    testStack.push(1);
+    testStack.push(2);
+    testStack.push(5);
+    testStack.push(9);
+    cout << testStack.pop() << endl;
+    cout << testStack.pop() << endl;
+    cout << testStack.pop() << endl;
+    cout << testStack.pop() << endl;
+    cout << testStack.pop() << endl;
 };
 
 // TODO: CHECK FOR MEMORY LEAKS
