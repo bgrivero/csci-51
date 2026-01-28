@@ -103,7 +103,6 @@ struct IntList{
 };
 
 struct IntStack{
-    // REVIEW: If this set up fulfills "not exposing" IntNode struct to user.
     private:
     IntNode* topP;
     int stacksize;
@@ -181,10 +180,11 @@ int main(void){
     testStack.push(2);
     testStack.push(5);
     testStack.push(9);
+    cout << "Current stack size: " << testStack.size() << endl;
     cout << testStack.pop() << endl;
     cout << testStack.pop() << endl;
     cout << testStack.pop() << endl;
+    cout << "Current stack size: " << testStack.size() << endl;
     cout << testStack.pop() << endl;
     cout << testStack.pop() << endl;
 };
-// hi
