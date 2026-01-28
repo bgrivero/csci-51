@@ -86,7 +86,7 @@ struct IntList{
         cout << firstNodeP -> val << endl;
 
         IntNode* nextP = firstNodeP -> next;
-        while (nextP != NULL){
+        while (nextP != nullptr){
             cout << nextP -> val << endl;
             nextP = nextP -> next;
         }
