@@ -82,17 +82,13 @@ struct IntList{
             cout << "Empty linked list." << endl;
             return;
         }
-        cout << "--- Linked List ---" << endl;
-        cout << firstNodeP -> val << " ";
-        cout << "Address: " << firstNodeP << " ";
-        cout << "Next: " << firstNodeP -> next << endl;
+        cout << "--- Linked List Values ---" << endl;
+        cout << firstNodeP -> val << endl;
 
         IntNode* nextP = firstNodeP -> next;
-        while (nextP != nullptr){
-            cout << nextP -> val << " ";
-            cout << "Address: " << nextP << " ";
-            cout << "Next: " <<  nextP  -> next << endl;
-            nextP = getNextNode(nextP);
+        while (nextP != NULL){
+            cout << nextP -> val << endl;
+            nextP = nextP -> next;
         }
         return;
     }
