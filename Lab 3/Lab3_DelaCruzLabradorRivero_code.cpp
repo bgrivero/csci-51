@@ -85,7 +85,7 @@ struct IntList{
             cout << nextP -> val << " ";
             cout << "Address: " << nextP << " ";
             cout << "Next: " <<  nextP  -> next << endl;
-            nextP = nextP -> next;
+            nextP = getNextNode(nextP);
         }
         return;
     }
@@ -167,8 +167,9 @@ int main(void){
     cout << "--- Deleted first node ---" << endl;
     linkedList.printAllVals();
 
-    // Delete node 2
-    IntNode* node2 = linkedList.firstNodeP->next;
+    // Show implementation of getNextNode function and Delete node 2
+    IntNode* node2 = linkedList.getNextNode(linkedList.firstNodeP);
+    cout << "The node after first node: " << node2 -> val << endl;
     linkedList.deleteNode(node2);
     cout << "--- Deleted second node ---" << endl;
     linkedList.printAllVals();
