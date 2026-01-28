@@ -1,3 +1,10 @@
+/*********************************************
+LAB 3: STRUCTS
+Dela Cruz, Justin Bon
+Labrador, Zandalee Beck
+Rivero, Bryce Geryk
+*********************************************/
+
 #include <string>
 #include <iostream>
 using namespace std;
