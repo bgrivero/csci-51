@@ -75,12 +75,16 @@ struct IntList{
             cout << "Empty linked list." << endl;
             return;
         }
-        cout << "--- Linked List Values ---" << endl;
-        cout << firstNodeP -> val << endl;
+        cout << "--- Linked List ---" << endl;
+        cout << firstNodeP -> val << " ";
+        cout << "Address: " << firstNodeP << " ";
+        cout << "Next: " << firstNodeP -> next << endl;
 
         IntNode* nextP = firstNodeP -> next;
         while (nextP != NULL){
-            cout << nextP -> val << endl;
+            cout << nextP -> val << " ";
+            cout << "Address: " << nextP << " ";
+            cout << "Next: " <<  nextP  -> next << endl;
             nextP = nextP -> next;
         }
         return;
