@@ -16,7 +16,7 @@ struct IntList{
 
     // The function instantiates the firstNode and returns the pointer to the first node.
     IntNode* createFirstNode(int val){
-        firstNodeP = new IntNode{val, NULL};
+        firstNodeP = new IntNode{val, nullptr};
         return firstNodeP;
     }
 
@@ -34,8 +34,8 @@ struct IntList{
 
     // The function returns the node after any other node.
     IntNode* getNextNode(IntNode* nodeP){
-        if (nodeP == NULL) {
-            return NULL;
+        if (nodeP == nullptr) {
+            return nullptr;
         }
         return nodeP -> next;
     }
@@ -43,7 +43,7 @@ struct IntList{
     // The function deletes a node.
     void deleteNode(IntNode* nodeP){
         // The linked list is empty or the node being deleted is null i.e. illegal memory access 
-        if (firstNodeP == NULL || nodeP == NULL){
+        if (firstNodeP == nullptr || nodeP == nullptr){
             return;
         }
 
@@ -58,7 +58,7 @@ struct IntList{
 
         // Deleting other nodes that is not the first
         IntNode* current = firstNodeP;
-        while (current -> next != NULL && current -> next != nodeP){
+        while (current -> next != nullptr && current -> next != nodeP){
             current = current->next;
         }
 
@@ -71,7 +71,7 @@ struct IntList{
 
     // The function is used to print out all node values in the linked list.
     void printAllVals(){
-        if (firstNodeP == NULL){
+        if (firstNodeP == nullptr){
             cout << "Empty linked list." << endl;
             return;
         }
@@ -81,7 +81,7 @@ struct IntList{
         cout << "Next: " << firstNodeP -> next << endl;
 
         IntNode* nextP = firstNodeP -> next;
-        while (nextP != NULL){
+        while (nextP != nullptr){
             cout << nextP -> val << " ";
             cout << "Address: " << nextP << " ";
             cout << "Next: " <<  nextP  -> next << endl;
@@ -111,7 +111,7 @@ struct IntStack{
     public:
     // Initializing an empty stack.
     IntStack(){
-        topP = NULL;
+        topP = nullptr;
         stacksize = 0;
     }
     
@@ -124,7 +124,7 @@ struct IntStack{
 
     // This function returns the value of the top node and deletes it from the stack.
     int pop(){
-        if(topP == NULL){
+        if(topP == nullptr){
             cout << "Stack is empty" << endl;
             return -99;
         };
@@ -147,13 +147,13 @@ struct IntStack{
 
 int main(void){
     // Initialize linkedlist
-    IntList linkedList = IntList {NULL};
+    IntList linkedList = IntList {nullptr};
     linkedList.printAllVals();
     IntNode* nextP = linkedList.createFirstNode(0);
 
     // Add some nodes to the linked list
     for (int i = 1; i < 5; i++){
-        IntNode* nextNodeP = new IntNode {i,NULL};
+        IntNode* nextNodeP = new IntNode {i,nullptr};
         nextP = linkedList.insert(nextP, nextNodeP);
     }
     
