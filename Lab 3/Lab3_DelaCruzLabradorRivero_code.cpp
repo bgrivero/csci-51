@@ -13,6 +13,7 @@ using namespace std;
 struct IntNode{
     int val;
     IntNode* next;
+    IntNode* prev;
 };
 
 // The following struct is an IntNode implementation of a Integer LinkedList.
@@ -132,9 +133,9 @@ struct IntStack{
         };
         // Temporary have the topNode to have the top-most node which will be deleted later on.
         IntNode* topNode = topP;
-        int returnValue = topNode -> val;
+        int returnValue = topP -> val;
         // Move the topP to the "next" (node below the top).
-        topP = topP -> next;
+        topP = topP-> next;
         delete topNode;
         stacksize --;
         return returnValue;
@@ -143,6 +144,70 @@ struct IntStack{
     // This function returns the value of the current stacksize.
     int size(){
         return stacksize;
+    }
+
+    ~IntStack() {
+        while (stacksize>0) {
+            pop();
+            cout << "Popped!" << endl;
+        }
+    }
+};
+
+struct IntQueue{
+    private:
+    IntNode* topP;
+    IntNode* bottomP;
+    int queuesize;
+
+    public:
+    // Initializing an empty stack.
+    IntQueue(){
+        topP = nullptr;
+        bottomP = nullptr;
+        queuesize = 0;
+    }
+    
+    // This function pushes a value onto the stack. topP is the next for the newNode since the next value is always the previous one.
+    void enqueue(int value){
+        IntNode* newNode = new IntNode{value, topP};
+        if (queuesize==0){
+            bottomP = newNode;
+        }
+        else {
+            topP -> prev = newNode;
+        }
+        topP = newNode;
+        queuesize ++;
+        
+    }
+
+    // This function returns the value of the top node and deletes it from the stack.
+    int dequeue(){
+        if(topP == nullptr){
+            cout << "Stack is empty" << endl;
+            return -99;
+        };
+        // Temporary have the topNode to have the top-most node which will be deleted later on.
+        IntNode* bottomNode = bottomP;
+        int returnValue = bottomNode -> val;
+        // Move the topP to the "next" (node below the top).
+        bottomP = bottomP -> prev;
+        delete bottomNode;
+        queuesize --;
+        return returnValue;
+    }
+
+    // This function returns the value of the current stacksize.
+    int size(){
+        return queuesize;
+    }
+
+    ~IntQueue() {
+        while (queuesize>0) {
+            
+            cout << "Dequeued a " << dequeue() << endl;
+        }
     }
 };
 
@@ -187,7 +252,22 @@ int main(void){
     cout << testStack.pop() << endl;
     cout << testStack.pop() << endl;
     cout << testStack.pop() << endl;
+    testStack.push(9);
     cout << "Current stack size: " << testStack.size() << endl;
-    cout << testStack.pop() << endl;
-    cout << testStack.pop() << endl;
+
+
+    // queue check
+    cout << "--- Queue Time ---" << endl;
+    IntQueue testQueue;
+    testQueue.enqueue(6);
+    testQueue.enqueue(2);
+    testQueue.enqueue(3);
+    testQueue.enqueue(5);
+    cout << "Current queue size: " << testQueue.size() << endl;
+    cout << testQueue.dequeue() << endl;
+    cout << testQueue.dequeue() << endl;
+    cout << testQueue.dequeue() << endl;
+    cout << "Current queue size: " << testQueue.size() << endl;
+
+
 };
